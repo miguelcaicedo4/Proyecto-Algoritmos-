@@ -1,22 +1,34 @@
-#ifndef _arbol_hpp_
-#define _arbol_hpp_
+#ifndef _TREE_HPP
+#define _TREE_HPP
+#include <vector>
+#include <string>
 
-template <typename dataType>
-class Arbol{
-public:
-    Arbol();
-    ~Arbol();
+using namespace std;
 
-private:
-    dataType struct nodo{
-        dataType data;
-        struct nodo *rama[hijos]
-    };
-    dataType nodo *arbol *pNodo;
-   
+
+class tree{
+  struct node{
+    string key;
+    bool player;
+    node *left, *right, *central, *parent;
+  };
+
+  public:
+    tree(string game, bool turn);
+    ~tree();
+
+    vector<string> childrenNames(node &root, bool player);
+    void childrenNode(vector<string> childrenName , node &root);
+
+    /*
+    void displayTree(std::ostream &out = std::cout)const;
+    void insert(node &game);
+    int max(int i , int p );
+    int min(int i , int p);
+    int Bestmove(node &game);
+    void displayGame(node &game);
+*/
+
 };
 
-#include "Arbol.cpp"
 #endif
-
-
