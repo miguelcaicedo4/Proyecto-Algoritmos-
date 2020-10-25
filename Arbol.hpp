@@ -14,4 +14,9 @@ private:
     };
     dataType nodo *arbol *pNodo;
    
-}
+};
+
+#include "Arbol.cpp"
+#endif
+
+
