@@ -1,0 +1,61 @@
+#include <iostream>
+#include "minimax.hpp"
+using namespace std;
+
+
+int main(){
+  vector<int> testpl = {0,0,0,0,0,0,0,0,0};
+
+  cout<<"Bienvenido Jugador"<<endl;
+  cout<<"Hora de empezar!!!"<<endl;
+  cout<<" (^‿^) "<<endl;
+  tictactoe test(testpl);
+  while(true){
+    test.findBestMove();
+    test.display();
+    if(test.Valueplay()==0){
+      char wish='a';
+      cout<<"casi lo logro"<<endl;
+      cout<<" (￢_￢;) "<<endl;
+      cout<<"la revancha? (y/n)"<<endl;
+      cout<<" (^_~) "<<endl;
+      cin>>wish;
+      if(wish=='y'|| wish=='Y'){
+        cout<<" a darle"<<endl;
+        cout<<" (￢_￢) "<<endl;
+        test.Reset();
+        test.findBestMove();
+        test.display();
+      }
+      if(wish=='N'||wish=='n'){
+        cout<<"Nos volveremos a encontrar"<<endl;
+        cout<<"  ･ﾟ･(｡>ω<｡)･ﾟ･  "<<endl;
+        cout<<"Hasta luego, pero recuerda que no me ganaste"<<endl;
+        cout<<"  ╰(▔∀▔)╯  "<<endl;
+        break;
+      }
+    }
+    if(test.Valueplay()==10 || test.Valueplay()==-10){
+      char wish='a';
+      cout<<"has perdido, Deseas volver a intentarlo (y/n)"<<endl;
+      cin>>wish;
+      if(wish=='y'|| wish=='Y'){
+        cout<<"no te rindes tan facilmente"<<endl;
+        cout<<" (〜￣▽￣)〜 "<<endl;
+        test.Reset();
+        test.findBestMove();
+        test.display();
+      }
+      if(wish=='N'||wish=='n'){
+        cout<<"te rendiste"<<endl;
+        cout<<" (︶︹︺) "<<endl;
+        cout<<"Hasta luego"<<endl;
+        cout<<"  (￣▽￣)ノ "<<endl;
+        break;
+      }
+    }
+    cout<<"tu turno"<<endl;
+    test.movePlayer();
+    }
+  return 0;
+}
